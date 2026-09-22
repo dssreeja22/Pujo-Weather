@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kolkata Weather Almanack · Pujo 2026 · 16–21 Oct</title>
+<style>
+  :root{
+    --paper:#f0e3c8; --paper-2:#e6d5b3; --ink:#3a2415; --ink-2:#6b4a2e;
+    --sepia:#8a5a2b; --gold:#c9922b; --marigold:#e08a1e; --sindoor:#c0392b;
+    --deep:#7d2b1f; --cream:#fbf3e2; --shadow:rgba(58,36,21,.22);
+    --sky-1:#f6d9a0; --sky-2:#e8a95f; --sky-3:#c9743f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{
+    background:#241a12;
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    min-height:100vh; padding:26px 16px;
+  }
+  .outer{width:100%; max-width:1200px}
+
+  /* ---------- the banner ---------- */
+  .banner{
+    position:relative; width:100%; aspect-ratio:1200/675;
+    border-radius:6px; overflow:hidden; isolation:isolate;
+    background:
+      radial-gradient(120% 90% at 78% 18%, #f8e9c9 0%, var(--paper) 42%, var(--paper-2) 100%);
+    box-shadow:0 22px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(58,36,21,.35),
+               inset 0 0 90px rgba(125,43,31,.10);
+    container-type:inline-size;
+    cursor:default;
+  }
+  /* aged paper grain + vignette */
+  .grain{position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply; pointer-events:none}
+  .vig{position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(105% 95% at 50% 45%, transparent 52%, rgba(90,55,25,.30) 100%);
+    box-shadow:inset 0 0 60px rgba(90,55,25,.35)}
+  .foxing{position:absolute; inset:0; pointer-events:none; opacity:.32;
+    background:
+      radial-gradient(9px 7px at 12% 82%, rgba(140,85,35,.7), transparent 70%),
+      radial-gradient(6px 5px at 26% 12%, rgba(140,85,35,.6), transparent 70%),
+      radial-gradient(11px 8px at 88% 71%, rgba(140,85,35,.55), transparent 70%),
+      radial-gradient(5px 5px at 63% 8%,  rgba(140,85,35,.6), transparent 70%),
+      radial-gradient(8px 6px at 44% 92%, rgba(140,85,35,.5), transparent 70%);}
+  .scene{position:absolute; inset:0; z-index:1}
+  .scene svg{position:absolute; inset:0; width:100%; height:100%}
+
+  /* ---------- masthead ---------- */
+  .mast{
+    position:absolute; z-index:4; top:3.4cqw; left:0; right:0;
+    text-align:center; pointer-events:none;
+  }
+  .mast .rule{width:64%; margin:0 auto; height:0; border-top:1px solid rgba(58,36,21,.55)}
+  .mast .rule.thin{border-top-width:1px; width:52%; margin-top:2px}
+  .mast h1{
+    font-size:2.55cqw; letter-spacing:.42em; text-transform:uppercase;
+    font-weight:700; color:var(--deep); margin:.5cqw 0 .35cqw; text-indent:.42em;
+    text-shadow:0 1px 0 rgba(255,248,230,.7);
+  }
+  .mast .sub{
+    font-size:1.28cqw; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-2);
+    text-indent:.28em;
+  }
+
+  /* ---------- hero card ---------- */
+  .hero{
+    position:absolute; z-index:5; left:3.6cqw; top:15.0cqw; width:32.4cqw;
+    padding:2.1cqw 2.2cqw 1.9cqw;
+    background:linear-gradient(160deg, rgba(251,243,226,.94), rgba(238,223,193,.9));
+    border:1px solid rgba(58,36,21,.45);
+    box-shadow:0 .5cqw 2cqw var(--shadow), inset 0 0 0 2px rgba(251,243,226,.55);
+    border-radius:3px;
+  }
+  .hero::after{
+    content:''; position:absolute; inset:.42cqw; border:1px dashed rgba(138,90,43,.5);
+    pointer-events:none; border-radius:2px;
+  }
+  .tithi{font-size:1.12cqw; letter-spacing:.26em; text-transform:uppercase; color:var(--sindoor); font-weight:700}
+  .dateline{font-size:1.06cqw; letter-spacing:.1em; color:var(--ink-2); margin-top:.25cqw}
+  .temprow{display:flex; align-items:flex-end; gap:1.1cqw; margin:.7cqw 0 .1cqw}
+  .big{font-size:7.4cqw; line-height:.86; font-weight:700; color:var(--deep);
+    text-shadow:0 2px 0 rgba(255,250,235,.8)}
+  .big sup{font-size:2.6cqw; vertical-align:super; margin-left:.15cqw}
+  .lohi{font-size:1.16cqw; line-height:1.5; color:var(--ink-2); padding-bottom:.7cqw}
+  .lohi b{color:var(--ink)}
+  .quip{
+    font-size:1.34cqw; line-height:1.42; font-style:italic; color:var(--ink);
+    border-top:1px solid rgba(58,36,21,.28); margin-top:.85cqw; padding-top:.8cqw; min-height:4.1cqw;
+  }
+  .stats{display:grid; grid-template-columns:1fr 1fr; gap:.55cqw 1.4cqw; margin-top:.9cqw}
+  .st{font-size:1.02cqw; letter-spacing:.05em; color:var(--ink-2); display:flex; justify-content:space-between; gap:.5cqw}
+  .st b{color:var(--deep); font-variant-numeric:tabular-nums}
+  .meter{margin-top:1cqw}
+  .meter .cap{font-size:.94cqw; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-2)}
+  .track{height:.72cqw; margin-top:.42cqw; border:1px solid rgba(58,36,21,.42);
+    background:rgba(255,250,235,.6); border-radius:99px; overflow:hidden}
+  .fill{height:100%; width:0;
+    background:linear-gradient(90deg, var(--gold), var(--marigold) 60%, var(--sindoor));
+    transition:width .55s cubic-bezier(.2,.7,.2,1)}
+
+  /* ---------- day rail ---------- */
+  .rail{
+    position:absolute; z-index:6; left:4.2cqw; right:4.2cqw; bottom:3.3cqw;
+    display:grid; grid-template-columns:repeat(6,1fr); gap:.85cqw;
+  }
+  .day{
+    position:relative; padding:.85cqw .5cqw .8cqw; text-align:center; cursor:pointer;
+    background:linear-gradient(180deg, rgba(251,243,226,.9), rgba(232,213,178,.86));
+    border:1px solid rgba(58,36,21,.42); border-radius:3px;
+    box-shadow:0 .25cqw .8cqw rgba(58,36,21,.18);
+    transition:transform .18s cubic-bezier(.2,.7,.2,1), box-shadow .18s, background .18s;
+  }
+  .day:hover{transform:translateY(-.55cqw) rotate(-.5deg);
+    box-shadow:0 .7cqw 1.5cqw rgba(58,36,21,.3)}
+  .day .dow{font-size:.92cqw; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-2)}
+  .day .num{font-size:2.5cqw; font-weight:700; line-height:1.05; color:var(--deep)}
+  .day .tt{font-size:.92cqw; letter-spacing:.1em; color:var(--sepia); margin-top:.05cqw;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .day .tm{font-size:1.06cqw; margin-top:.3cqw; color:var(--ink); font-variant-numeric:tabular-nums}
+  .day .ico{font-size:1.3cqw; line-height:1}
+  .day[aria-selected="true"]{
+    background:linear-gradient(180deg, #fff8e6, #f2ddb2);
+    border-color:var(--sindoor); transform:translateY(-.75cqw);
+    box-shadow:0 .8cqw 1.8cqw rgba(125,43,31,.35), inset 0 0 0 2px rgba(224,138,30,.55);
+  }
+  .day[aria-selected="true"]::before{
+    content:''; position:absolute; left:50%; top:-.75cqw; width:.7cqw; height:.7cqw;
+    transform:translateX(-50%) rotate(45deg); background:var(--sindoor);
+  }
+
+  /* ---------- toggles ---------- */
+  .ctrl{position:absolute; z-index:7; right:4.2cqw; top:15.0cqw; display:flex; flex-direction:column; gap:.6cqw; align-items:flex-end}
+  .pill{
+    font-family:inherit; font-size:1.02cqw; letter-spacing:.14em; text-transform:uppercase;
+    padding:.55cqw 1.1cqw; border-radius:99px; cursor:pointer;
+    background:rgba(251,243,226,.86); color:var(--ink-2);
+    border:1px solid rgba(58,36,21,.42); box-shadow:0 .2cqw .6cqw rgba(58,36,21,.18);
+    transition:all .2s;
+  }
+  .pill:hover{color:var(--deep)}
+  .pill[aria-pressed="true"]{background:var(--deep); color:#f7e6c4; border-color:var(--deep)}
+
+  /* ---------- footer note ---------- */
+  .foot{
+    position:absolute; z-index:6; left:0; right:0; bottom:.85cqw; text-align:center;
+    font-size:.86cqw; letter-spacing:.1em; color:rgba(251,243,226,.86); pointer-events:none;
+    text-shadow:0 1px 3px rgba(40,22,10,.85);
+  }
+
+  /* ---------- animated bits ---------- */
+  .petals{position:absolute; inset:0; z-index:3; pointer-events:none; overflow:hidden}
+  .petal{position:absolute; top:-4cqw; width:1.4cqw; height:.95cqw; opacity:0;
+    background:radial-gradient(circle at 30% 40%, #fffaf0 55%, #f6e2b8 100%);
+    border-radius:60% 40% 55% 45%/60% 55% 45% 40%;
+    box-shadow:inset 0 0 0 .1cqw rgba(224,138,30,.35);
+    animation:fall linear infinite;}
+  @keyframes fall{
+    0%{opacity:0; transform:translate3d(0,0,0) rotate(0deg)}
+    8%{opacity:.95}
+    100%{opacity:0; transform:translate3d(6cqw,78cqw,0) rotate(540deg)}
+  }
+  .tram{animation:roll 26s linear infinite}
+  @keyframes roll{
+    0%{transform:translateX(-16cqw)} 100%{transform:translateX(126cqw)}
+  }
+  .cloud{animation:drift linear infinite}
+  @keyframes drift{0%{transform:translateX(-20cqw)}100%{transform:translateX(130cqw)}}
+  .twinkle{animation:tw 2.6s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.35}50%{opacity:1}}
+  .flick{animation:fl 3.4s ease-in-out infinite}
+  @keyframes fl{0%,100%{opacity:.55}45%{opacity:.95}70%{opacity:.7}}
+  @media (prefers-reduced-motion:reduce){
+    .petal,.tram,.cloud,.twinkle,.flick{animation:none !important}
+    .petal{opacity:.55}
+  }
+
+  /* ---------- evening mode ---------- */
+  .banner.eve{
+    background:radial-gradient(120% 90% at 78% 22%, #6b4a3a 0%, #402a20 48%, #2b1c15 100%);
+    --ink:#f3e2c0; --ink-2:#d8bd93; --paper:#3a2820; --cream:#4a3327;
+    --sky-1:#3d2a3f; --sky-2:#5a3140; --sky-3:#2a1a22;
+  }
+  .banner.eve .hero{
+    background:linear-gradient(160deg, rgba(58,40,32,.93), rgba(42,28,21,.9));
+    border-color:rgba(224,138,30,.5);
+    box-shadow:0 .5cqw 2cqw rgba(0,0,0,.5), inset 0 0 0 2px rgba(224,138,30,.14);
+  }
+  .banner.eve .hero::after{border-color:rgba(224,138,30,.35)}
+  .banner.eve .big,.banner.eve .st b,.banner.eve .day .num{color:#f6c664; text-shadow:none}
+  .banner.eve .tithi{color:#f09a4a}
+  .banner.eve .mast h1{color:#f6c664; text-shadow:none}
+  .banner.eve .day{background:linear-gradient(180deg, rgba(58,40,32,.9), rgba(38,25,19,.88));
+    border-color:rgba(224,138,30,.4)}
+  .banner.eve .day[aria-selected="true"]{background:linear-gradient(180deg,#5a3d27,#3a2517);
+    border-color:#f6c664; box-shadow:0 .8cqw 1.8cqw rgba(0,0,0,.5), inset 0 0 0 2px rgba(246,198,100,.5)}
+  .banner.eve .day[aria-selected="true"]::before{background:#f6c664}
+  .banner.eve .day .tt{color:#c99a63}
+  .banner.eve .grain{opacity:.28}
+  .banner.eve .foxing{opacity:.1}
+  .banner.eve .vig{background:radial-gradient(105% 95% at 50% 45%, transparent 45%, rgba(0,0,0,.55) 100%)}
+  .banner.eve .pill{background:rgba(58,40,32,.85); border-color:rgba(224,138,30,.45); color:#e0c39a}
+  .banner.eve .pill[aria-pressed="true"]{background:#f6c664; color:#2b1c15; border-color:#f6c664}
+  .banner.eve .foot{color:rgba(243,226,192,.8)}
+  .banner.eve .track{background:rgba(0,0,0,.35); border-color:rgba(224,138,30,.4)}
+
+  .caption{margin-top:14px; text-align:center; color:#c8ab7d; font-size:12.5px; letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="outer">
+<div class="banner" id="banner">
+
+  <!-- paper grain -->
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#gr)" opacity="0.42"/>
+  </svg>
+
+  <!-- ===================== SCENE ===================== -->
+  <div class="scene">
+    <svg viewBox="0 0 1200 675" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"  stop-color="var(--sky-1)" stop-opacity=".85"/>
+          <stop offset="55%" stop-color="var(--sky-2)" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="var(--sky-3)" stop-opacity=".22"/>
+        </linearGradient>
+        <linearGradient id="cityG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#9c6832" stop-opacity=".8"/>
+          <stop offset="100%" stop-color="#5d3a1c" stop-opacity=".95"/>
+        </linearGradient>
+        <linearGradient id="farG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b8894f" stop-opacity=".34"/>
+          <stop offset="100%" stop-color="#8a5a2b" stop-opacity=".46"/>
+        </linearGradient>
+        <radialGradient id="sunG"><stop offset="0%" stop-color="#fff3cf"/>
+          <stop offset="58%" stop-color="#f2b453" stop-opacity=".75"/>
+          <stop offset="100%" stop-color="#e08a1e" stop-opacity="0"/></radialGradient>
+        <radialGradient id="lampG"><stop offset="0%" stop-color="#ffd98a" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="#ffb43c" stop-opacity="0"/></radialGradient>
+      </defs>
+
+      <rect x="0" y="0" width="1200" height="675" fill="url(#skyG)"/>
+
+      <!-- sun / moon over the river -->
+      <g id="orb">
+        <circle cx="1010" cy="352" r="98" fill="url(#sunG)" opacity=".7"/>
+        <circle cx="1010" cy="352" r="38" fill="#f4bf63" opacity=".9" id="orbCore"/>
+      </g>
+
+      <!-- drifting clouds -->
+      <g opacity=".45" fill="#fdf0d4">
+        <g class="cloud" style="animation-duration:56s">
+          <ellipse cx="120" cy="252" rx="54" ry="15"/><ellipse cx="156" cy="243" rx="38" ry="13"/>
+          <ellipse cx="88"  cy="245" rx="30" ry="10"/>
+        </g>
+        <g class="cloud" style="animation-duration:78s; animation-delay:-34s" opacity=".65">
+          <ellipse cx="300" cy="300" rx="68" ry="17"/><ellipse cx="345" cy="291" rx="42" ry="13"/>
+        </g>
+        <g class="cloud" style="animation-duration:66s; animation-delay:-54s" opacity=".5">
+          <ellipse cx="700" cy="238" rx="46" ry="12"/><ellipse cx="732" cy="231" rx="30" ry="9"/>
+        </g>
+      </g>
+
+      <!-- birds -->
+      <g stroke="#5d3a1c" stroke-width="2.2" fill="none" opacity=".5" stroke-linecap="round">
+        <path d="M700 268 l9 -7 l9 7"/><path d="M728 256 l8 -6 l8 6"/><path d="M752 276 l7 -6 l7 6"/>
+      </g>
+
+      <!-- ===== marigold garland (toran) ===== -->
+      <g id="toran" transform="translate(0,96)">
+        <path d="M0 96 Q150 158 300 96 Q450 158 600 96 Q750 158 900 96 Q1050 158 1200 96"
+              fill="none" stroke="#7d5a2b" stroke-width="2" opacity=".6"/>
+        <g fill="#e08a1e">
+          <circle cx="60" cy="124" r="7"/><circle cx="120" cy="140" r="8"/><circle cx="180" cy="140" r="8"/>
+          <circle cx="240" cy="124" r="7"/><circle cx="360" cy="124" r="7"/><circle cx="420" cy="140" r="8"/>
+          <circle cx="480" cy="140" r="8"/><circle cx="540" cy="124" r="7"/><circle cx="660" cy="124" r="7"/>
+          <circle cx="720" cy="140" r="8"/><circle cx="780" cy="140" r="8"/><circle cx="840" cy="124" r="7"/>
+          <circle cx="960" cy="124" r="7"/><circle cx="1020" cy="140" r="8"/><circle cx="1080" cy="140" r="8"/>
+          <circle cx="1140" cy="124" r="7"/>
+        </g>
+        <g fill="#c0392b" opacity=".8">
+          <circle cx="90" cy="134" r="4"/><circle cx="150" cy="143" r="4"/><circle cx="210" cy="134" r="4"/>
+          <circle cx="390" cy="134" r="4"/><circle cx="450" cy="143" r="4"/><circle cx="510" cy="134" r="4"/>
+          <circle cx="690" cy="134" r="4"/><circle cx="750" cy="143" r="4"/><circle cx="810" cy="134" r="4"/>
+          <circle cx="990" cy="134" r="4"/><circle cx="1050" cy="143" r="4"/><circle cx="1110" cy="134" r="4"/>
+        </g>
+        <g fill="#6f7b32" opacity=".65">
+          <path d="M300 100 q-9 22 0 34 q9 -12 0 -34z"/><path d="M600 100 q-9 22 0 34 q9 -12 0 -34z"/>
+          <path d="M900 100 q-9 22 0 34 q9 -12 0 -34z"/>
+        </g>
+      </g>
+
+      <!-- ================= GROUND: horizon at y=500 ================= -->
+
+      <!-- the Hooghly -->
+      <g>
+        <rect x="884" y="428" width="316" height="74" fill="#a8763f" opacity=".3"/>
+        <g stroke="#f6e2b8" stroke-width="2" opacity=".32" stroke-linecap="round">
+          <path d="M912 444 h44 M978 452 h56 M1064 442 h48 M1132 456 h44"/>
+          <path d="M900 470 h60 M994 478 h50 M1080 468 h56 M900 490 h40 M1010 494 h64 M1116 486 h48"/>
+        </g>
+        <path d="M884 428 H1200" stroke="#8a5a2b" stroke-width="1.5" opacity=".5"/>
+      </g>
+
+      <!-- far skyline -->
+      <g fill="url(#farG)">
+        <rect x="214" y="418" width="44" height="82"/><rect x="264" y="400" width="30" height="100"/>
+        <rect x="300" y="432" width="24" height="68"/><rect x="330" y="410" width="38" height="90"/>
+        <rect x="374" y="436" width="26" height="64"/><rect x="404" y="422" width="34" height="78"/>
+        <rect x="1150" y="400" width="34" height="30"/>
+      </g>
+
+      <!-- ===== Howrah-style cantilever bridge over the river ===== -->
+      <g stroke="#5d3a1c" fill="none" stroke-width="6" opacity=".9" transform="translate(470,130) scale(0.62)">
+        <path d="M660 486 H1160" stroke-width="11"/>
+        <path d="M660 500 H1160" stroke-width="5" opacity=".55"/>
+        <path d="M760 486 V318 M812 486 V318 M760 318 H812" stroke-width="7"/>
+        <path d="M1030 486 V318 M1082 486 V318 M1030 318 H1082" stroke-width="7"/>
+        <path d="M760 352 H812 M1030 352 H1082 M760 400 H812 M1030 400 H1082
+                 M760 444 H812 M1030 444 H1082" stroke-width="4"/>
+        <g stroke-width="3.4" opacity=".8">
+          <path d="M760 318 L812 352 M812 318 L760 352 M760 352 L812 400 M812 352 L760 400"/>
+          <path d="M760 400 L812 444 M812 400 L760 444 M760 444 L812 486 M812 444 L760 486"/>
+          <path d="M1030 318 L1082 352 M1082 318 L1030 352 M1030 352 L1082 400 M1082 352 L1030 400"/>
+          <path d="M1030 400 L1082 444 M1082 400 L1030 444 M1030 444 L1082 486 M1082 444 L1030 486"/>
+        </g>
+        <path d="M812 330 H1030" stroke-width="8"/>
+        <g stroke-width="3.6" opacity=".85">
+          <path d="M812 330 L866 486 M866 330 L812 486 M866 330 L921 486 M921 330 L866 486"/>
+          <path d="M921 330 L976 486 M976 330 L921 486 M976 330 L1030 486 M1030 330 L976 486"/>
+          <path d="M866 330 V486 M921 330 V486 M976 330 V486"/>
+        </g>
+        <g stroke-width="3.6" opacity=".75">
+          <path d="M660 486 L708 420 L760 486 M708 420 H760 M660 420 H708"/>
+          <path d="M1082 486 L1130 420 L1160 486 M1082 420 H1130"/>
+        </g>
+      </g>
+      <!-- bridge piers into the water -->
+      <g fill="#5d3a1c" opacity=".55">
+        <rect x="938" y="428" width="34" height="16"/><rect x="1104" y="428" width="34" height="16"/>
+      </g>
+
+      <!-- ===== Victoria-Memorial-style dome ===== -->
+      <g fill="url(#cityG)" stroke="#4a2d15" stroke-width="1.4">
+        <!-- podium -->
+        <rect x="668" y="452" width="196" height="48"/>
+        <rect x="660" y="443" width="212" height="10"/>
+        <!-- colonnade -->
+        <g fill="#f6e2b8" opacity=".24" stroke="none">
+          <rect x="680" y="460" width="9" height="40"/><rect x="702" y="460" width="9" height="40"/>
+          <rect x="724" y="460" width="9" height="40"/><rect x="800" y="460" width="9" height="40"/>
+          <rect x="822" y="460" width="9" height="40"/><rect x="844" y="460" width="9" height="40"/>
+        </g>
+        <!-- corner domes -->
+        <rect x="680" y="430" width="22" height="14"/><rect x="830" y="430" width="22" height="14"/>
+        <path d="M680 430 q11 -19 22 0 z"/><path d="M830 430 q11 -19 22 0 z"/>
+        <!-- drum + main dome + finial -->
+        <rect x="740" y="412" width="52" height="34"/>
+        <path d="M740 412 a26 26 0 0 1 52 0 z"/>
+        <rect x="762" y="390" width="8" height="12"/>
+        <circle cx="766" cy="385" r="5.5"/>
+        <!-- steps -->
+        <rect x="652" y="496" width="228" height="6"/>
+      </g>
+
+      <!-- ===== colonial terrace (far left, mostly behind the card) ===== -->
+      <g fill="url(#cityG)" stroke="#4a2d15" stroke-width="1.3">
+        <rect x="30" y="440" width="156" height="60"/>
+        <path d="M30 440 L108 408 L186 440 z"/>
+        <g fill="#f6e2b8" opacity=".28" stroke="none">
+          <rect x="44" y="456" width="16" height="24"/><rect x="72" y="456" width="16" height="24"/>
+          <rect x="100" y="456" width="16" height="24"/><rect x="128" y="456" width="16" height="24"/>
+          <rect x="156" y="456" width="16" height="24"/>
+        </g>
+      </g>
+
+      <!-- ===== PANDAL with chalchitri arch ===== -->
+      <g id="pandal" transform="translate(96,63) scale(0.78)">
+        <g stroke="#8a5a2b" stroke-width="6" fill="none" opacity=".9">
+          <path d="M470 560 V400 M690 560 V400"/>
+          <path d="M470 400 Q580 258 690 400" stroke-width="7"/>
+          <path d="M492 560 V416 M668 560 V416" stroke-width="3.6" opacity=".7"/>
+        </g>
+        <path d="M470 560 V400 Q580 258 690 400 V560 z" fill="#f7e3bb" opacity=".5"/>
+        <path d="M470 560 V400 Q580 258 690 400 V560 z" fill="none" stroke="#7d2b1f" stroke-width="3" opacity=".8"/>
+        <g fill="none" stroke-width="3.2" opacity=".85">
+          <path d="M478 402 Q580 272 682 402" stroke="#c0392b"/>
+          <path d="M490 416 Q580 294 670 416" stroke="#c9922b"/>
+        </g>
+        <g stroke="#c9922b" stroke-width="2.4" opacity=".45">
+          <path d="M580 396 L520 320 M580 396 L550 300 M580 396 L580 292 M580 396 L610 300 M580 396 L640 320"/>
+        </g>
+
+        <!-- Durga eyes (chokkhu) -->
+        <g id="eyes" transform="translate(580,392)">
+          <g transform="translate(0,-72)">
+            <path d="M-16 0 Q0 -13 16 0 Q0 13 -16 0 z" fill="#fbf3e2" stroke="#3a2415" stroke-width="2.6"/>
+            <circle cx="0" cy="0" r="5.2" fill="#3a2415"/>
+          </g>
+          <path d="M-92 -34 Q-52 -56 -18 -36" fill="none" stroke="#3a2415" stroke-width="5.5" stroke-linecap="round"/>
+          <path d="M92 -34 Q52 -56 18 -36" fill="none" stroke="#3a2415" stroke-width="5.5" stroke-linecap="round"/>
+          <g transform="translate(-54,-8)">
+            <path d="M-40 0 Q-16 -24 0 -12 Q16 -24 40 0 Q16 20 0 10 Q-16 20 -40 0 z"
+                  fill="#fbf3e2" stroke="#3a2415" stroke-width="3.4"/>
+            <circle cx="0" cy="-1" r="9.5" fill="#3a2415"/>
+            <circle cx="-3" cy="-4" r="2.6" fill="#fbf3e2" opacity=".85"/>
+          </g>
+          <g transform="translate(54,-8)">
+            <path d="M-40 0 Q-16 -24 0 -12 Q16 -24 40 0 Q16 20 0 10 Q-16 20 -40 0 z"
+                  fill="#fbf3e2" stroke="#3a2415" stroke-width="3.4"/>
+            <circle cx="0" cy="-1" r="9.5" fill="#3a2415"/>
+            <circle cx="-3" cy="-4" r="2.6" fill="#fbf3e2" opacity=".85"/>
+          </g>
+          <circle cx="0" cy="-44" r="3.4" fill="#c0392b"/>
+          <g fill="#c0392b" opacity=".75">
+            <circle cx="-104" cy="-18" r="2.8"/><circle cx="104" cy="-18" r="2.8"/>
+          </g>
+        </g>
+
+        <!-- dhak drums flanking the arch -->
+        <g stroke="#5d3a1c" stroke-width="2.6">
+          <g transform="translate(432,512)">
+            <ellipse cx="0" cy="0" rx="15" ry="30" fill="#e8d0a4"/>
+            <path d="M-15 -22 H15 M-15 22 H15" fill="none" stroke-width="2"/>
+            <path d="M-27 -36 l11 9 M27 -36 l-11 9" stroke-width="3" fill="none"/>
+          </g>
+          <g transform="translate(728,512)">
+            <ellipse cx="0" cy="0" rx="15" ry="30" fill="#e8d0a4"/>
+            <path d="M-15 -22 H15 M-15 22 H15" fill="none" stroke-width="2"/>
+            <path d="M-27 -36 l11 9 M27 -36 l-11 9" stroke-width="3" fill="none"/>
+          </g>
+        </g>
+
+        <!-- lotus + offering plate at the base of the arch -->
+        <g transform="translate(580,536)" opacity=".8">
+          <g fill="none" stroke="#c0392b" stroke-width="3">
+            <path d="M0 -6 q-13 -26 0 -40 q13 14 0 40z"/>
+            <path d="M0 -6 q-30 -18 -34 -36 q22 4 34 36z"/>
+            <path d="M0 -6 q30 -18 34 -36 q-22 4 -34 36z"/>
+            <path d="M0 -6 q-44 -6 -56 -18 q26 -6 56 18z"/>
+            <path d="M0 -6 q44 -6 56 -18 q-26 -6 -56 18z"/>
+          </g>
+          <path d="M-46 -4 H46 l-9 16 H-37 z" fill="#c9922b" opacity=".6" stroke="#8a5a2b" stroke-width="2"/>
+        </g>
+        <!-- string lights -->
+        <path d="M462 396 Q580 452 698 396" fill="none" stroke="#8a5a2b" stroke-width="2" opacity=".65"/>
+        <g fill="#f6c664">
+          <circle cx="492" cy="414" r="5" class="twinkle" style="animation-delay:0s"/>
+          <circle cx="530" cy="428" r="5" class="twinkle" style="animation-delay:.35s"/>
+          <circle cx="580" cy="434" r="5" class="twinkle" style="animation-delay:.7s"/>
+          <circle cx="630" cy="428" r="5" class="twinkle" style="animation-delay:1.05s"/>
+          <circle cx="668" cy="414" r="5" class="twinkle" style="animation-delay:1.4s"/>
+        </g>
+      </g>
+
+      <!-- ===== street level ===== -->
+      <rect x="0" y="500" width="1200" height="175" fill="#6b4527" opacity=".42"/>
+      <path d="M0 500 H1200" stroke="#4a2d15" stroke-width="2.5" opacity=".65"/>
+      <path d="M0 546 H1200 M0 558 H1200" stroke="#4a2d15" stroke-width="2" opacity=".45"/>
+
+      <!-- alpona on the street -->
+      <g fill="none" stroke="#f6e2b8" stroke-width="2.4" opacity=".4">
+        <path d="M470 520 q26 -15 52 0 q-26 15 -52 0z"/>
+        <path d="M530 520 q26 -15 52 0 q-26 15 -52 0z"/>
+        <path d="M590 520 q26 -15 52 0 q-26 15 -52 0z"/>
+        <circle cx="676" cy="520" r="7"/><circle cx="700" cy="520" r="4"/>
+      </g>
+
+      <!-- streetlamp, clear of the arch -->
+      <g>
+        <circle cx="446" cy="408" r="40" fill="url(#lampG)" class="flick"/>
+        <g stroke="#4a2d15" stroke-width="4" fill="none">
+          <path d="M446 500 V422"/><path d="M434 422 H458"/>
+        </g>
+        <path d="M436 422 L446 400 L456 422 z" fill="#f6c664" opacity=".9"/>
+        <circle cx="446" cy="500" r="6" fill="#4a2d15"/>
+      </g>
+
+      <!-- crowd on the street -->
+      <g fill="#3a2415" opacity=".55">
+        <g transform="translate(460,500)"><circle cx="0" cy="-17" r="7"/><path d="M-10 -9 q10 -6 20 0 l3 34 h-26 z"/></g>
+        <g transform="translate(492,502)" opacity=".85"><circle cx="0" cy="-14" r="6"/><path d="M-8 -7 q8 -5 16 0 l2 30 h-20 z"/></g>
+        <g transform="translate(700,500)"><circle cx="0" cy="-16" r="6.5"/><path d="M-9 -8 q9 -5 18 0 l2 32 h-22 z"/></g>
+        <g transform="translate(730,503)" opacity=".8"><circle cx="0" cy="-13" r="6"/><path d="M-8 -6 q8 -5 16 0 l2 28 h-20 z"/></g>
+        <!-- a dhaki mid-beat -->
+        <g transform="translate(766,500)">
+          <circle cx="0" cy="-19" r="7"/><path d="M-10 -11 q10 -6 20 0 l3 38 h-26 z"/>
+          <ellipse cx="19" cy="6" rx="7" ry="14"/>
+        </g>
+        <g transform="translate(886,501)" opacity=".8"><circle cx="0" cy="-15" r="6"/><path d="M-8 -7 q8 -5 16 0 l2 30 h-20 z"/></g>
+      </g>
+
+      <!-- ===== vintage tram ===== -->
+      <g class="tram">
+        <g transform="translate(0,-70)">
+          <path d="M96 566 V524 L142 512" stroke="#4a2d15" stroke-width="2" fill="none"/>
+          <rect x="40" y="566" width="190" height="56" rx="5" fill="#b8442f" stroke="#4a2d15" stroke-width="2.4"/>
+          <rect x="40" y="566" width="190" height="12" rx="4" fill="#e8d0a4" opacity=".75"/>
+          <g fill="#f6e2b8" opacity=".9" stroke="#4a2d15" stroke-width="1.2">
+            <rect x="52"  y="582" width="26" height="20" rx="2"/>
+            <rect x="86"  y="582" width="26" height="20" rx="2"/>
+            <rect x="120" y="582" width="26" height="20" rx="2"/>
+            <rect x="154" y="582" width="26" height="20" rx="2"/>
+            <rect x="188" y="582" width="26" height="20" rx="2"/>
+          </g>
+          <rect x="86" y="568" width="98" height="9" fill="#3a2415" opacity=".8"/>
+          <circle cx="76"  cy="628" r="11" fill="#3a2415"/><circle cx="76" cy="628" r="4" fill="#c9922b"/>
+          <circle cx="196" cy="628" r="11" fill="#3a2415"/><circle cx="196" cy="628" r="4" fill="#c9922b"/>
+          <circle cx="236" cy="596" r="5" fill="#f6c664" class="flick"/>
+        </g>
+      </g>
+
+      <!-- ink border -->
+      <rect x="10" y="10" width="1180" height="655" fill="none" stroke="#3a2415" stroke-width="2" opacity=".45"/>
+      <rect x="18" y="18" width="1164" height="639" fill="none" stroke="#3a2415" stroke-width="1" opacity=".3"/>
+    </svg>
+  </div>
+
+  <div class="foxing"></div>
+  <div class="petals" id="petals"></div>
+  <div class="vig"></div>
+
+  <!-- ===================== MASTHEAD ===================== -->
+  <div class="mast">
+    <div class="rule"></div><div class="rule thin"></div>
+    <h1>Kolkata Weather Almanack</h1>
+    <div class="sub">Pujo Edition &nbsp;·&nbsp; 16 – 21 October 2026</div>
+  </div>
+
+  <!-- ===================== CONTROLS ===================== -->
+  <div class="ctrl">
+    <button class="pill" id="eveBtn" aria-pressed="false">Sondhya Mode</button>
+    <button class="pill" id="playBtn" aria-pressed="false">Auto-hop</button>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <div class="hero">
+    <div class="tithi" id="hTithi">Maha Shashthi</div>
+    <div class="dateline" id="hDate">Friday, 16 October 2026 · Kolkata</div>
+    <div class="temprow">
+      <div class="big" id="hMax">32<sup>°C</sup></div>
+      <div class="lohi" id="hLoHi">Night low <b>24°C</b><br>Humidity <b>78%</b> · Sunset <b>17:07</b></div>
+    </div>
+    <div class="quip" id="hQuip">—</div>
+    <div class="stats">
+      <div class="st">Umbrella odds <b id="sRain">25%</b></div>
+      <div class="st">Sweat factor <b id="sSweat">Medium</b></div>
+      <div class="st">Shiuli index <b id="sShiuli">High</b></div>
+      <div class="st">Dhak decibels <b id="sDhak">Rising</b></div>
+    </div>
+    <div class="meter">
+      <div class="cap">Pandal-hop comfort</div>
+      <div class="track"><div class="fill" id="hFill"></div></div>
+    </div>
+  </div>
+
+  <!-- ===================== DAY RAIL ===================== -->
+  <div class="rail" id="rail" role="tablist" aria-label="Choose a day"></div>
+
+  <div class="foot" id="foot">
+    October normals, leaned on live signals as of 22 Sep 2026 — delayed withdrawal, active Bay, warm seas. Not a forecast: IMD's extended range stops at 30 Sep. Tithi timings straddle days.
+  </div>
+</div>
+<p class="caption">Click a day. Try Sondhya Mode after dark. 🪘</p>
+</div>
+
+<script>
+(function(){
+const DAYS = [
+ { d:16, dow:'Fri', tithi:'Maha Shashthi',
+   date:'Friday, 16 October 2026 · Kolkata',
+   max:33, min:25, hum:82, sunset:'17:07', rain:45, sweat:'Spicy', shiuli:'High', dhak:'Rising',
+   comfort:58, ico:'🌦️',
+   quip:'Bodhon — and the monsoon has not withdrawn yet. The city stops pretending it intends to sleep, in 82% humidity.' },
+
+ { d:17, dow:'Sat', tithi:'Maha Saptami',
+   date:'Saturday, 17 October 2026 · Kolkata',
+   max:33, min:25, hum:83, sunset:'17:06', rain:50, sweat:'Spicy', shiuli:'Peak', dhak:'Loud',
+   comfort:55, ico:'🌧️',
+   quip:'Coin-flip umbrella odds meet peak new kurta. Choose your fabric like your life depends on it, because your photographs do.' },
+
+ { d:18, dow:'Sun', tithi:'Saptami → Ashtami eve',
+   date:'Sunday, 18 October 2026 · Kolkata',
+   max:32, min:25, hum:84, sunset:'17:06', rain:55, sweat:'Spicy', shiuli:'Peak', dhak:'Deafening',
+   comfort:52, ico:'⛈️',
+   quip:'Sunday plus Pujo plus the wettest odds of the six. The queue at your third pandal is still the real forecast.' },
+
+ { d:19, dow:'Mon', tithi:'Maha Ashtami',
+   date:'Monday, 19 October 2026 · Kolkata',
+   max:32, min:25, hum:81, sunset:'17:05', rain:45, sweat:'Medium', shiuli:'High', dhak:'Deafening',
+   comfort:60, ico:'🌦️',
+   quip:'Anjali in the morning, bhog by afternoon. Dress for 32 degrees, a paper plate on one knee, and a sky that has not decided.' },
+
+ { d:20, dow:'Tue', tithi:'Maha Navami',
+   date:'Tuesday, 20 October 2026 · Kolkata',
+   max:32, min:24, hum:78, sunset:'17:04', rain:40, sweat:'Medium', shiuli:'Fading',
+   dhak:'Bittersweet', comfort:65, ico:'🌤️',
+   quip:'The sky finally begins to relent, precisely when nobody is willing to admit it is nearly over.' },
+
+ { d:21, dow:'Wed', tithi:'Vijaya Dashami',
+   date:'Wednesday, 21 October 2026 · Kolkata',
+   max:33, min:24, hum:76, sunset:'17:04', rain:35, sweat:'Medium', shiuli:'Last blooms',
+   dhak:'Farewell', comfort:68, ico:'🌇',
+   quip:'Sindoor khela, then bisorjon. The best of a difficult six days, for walking a goddess to the river and insisting you are absolutely fine.' }
+];
+
+/* build the day rail */
+const rail = document.getElementById('rail');
+DAYS.forEach((x,i)=>{
+  const b = document.createElement('div');
+  b.className='day'; b.setAttribute('role','tab');
+  b.setAttribute('aria-selected', i===0 ? 'true':'false');
+  b.innerHTML = '<div class="dow">'+x.dow+'</div>'+
+                '<div class="num">'+x.d+'</div>'+
+                '<div class="tt">'+x.tithi.replace(' (eve of Pujo)','').replace('Maha ','').replace('Vijaya ','')+'</div>'+
+                '<div class="ico">'+x.ico+'</div>'+
+                '<div class="tm">'+x.max+'° / '+x.min+'°</div>';
+  b.addEventListener('click',()=>{ stop(); pick(i); });
+  b.addEventListener('mouseenter',()=>pick(i,true));
+  rail.appendChild(b);
+});
+
+const $ = id=>document.getElementById(id);
+let cur = 0;
+
+function pick(i, soft){
+  cur = i;
+  const x = DAYS[i];
+  [...rail.children].forEach((c,j)=>c.setAttribute('aria-selected', j===i?'true':'false'));
+  $('hTithi').textContent = x.tithi;
+  $('hDate').textContent  = x.date;
+  $('hMax').innerHTML     = x.max + '<sup>°C</sup>';
+  $('hLoHi').innerHTML    = 'Night low <b>'+x.min+'°C</b><br>Humidity <b>'+x.hum+
+                            '%</b> · Sunset <b>'+x.sunset+'</b>';
+  $('hQuip').textContent  = x.quip;
+  $('sRain').textContent  = x.rain+'%';
+  $('sSweat').textContent = x.sweat;
+  $('sShiuli').textContent= x.shiuli;
+  $('sDhak').textContent  = x.dhak;
+  $('hFill').style.width  = x.comfort+'%';
+}
+
+/* petals */
+const pc = document.getElementById('petals');
+for(let i=0;i<16;i++){
+  const p=document.createElement('div'); p.className='petal';
+  p.style.left = (Math.random()*100).toFixed(1)+'%';
+  p.style.animationDuration = (11+Math.random()*10).toFixed(1)+'s';
+  p.style.animationDelay = (-Math.random()*18).toFixed(1)+'s';
+  p.style.transform = 'scale('+(0.65+Math.random()*0.8).toFixed(2)+')';
+  pc.appendChild(p);
+}
+
+/* sondhya (evening) mode */
+const banner=$('banner'), eveBtn=$('eveBtn'), orbCore=document.getElementById('orbCore');
+eveBtn.addEventListener('click',()=>{
+  const on = banner.classList.toggle('eve');
+  eveBtn.setAttribute('aria-pressed', on);
+  eveBtn.textContent = on ? 'Din Mode' : 'Sondhya Mode';
+  orbCore.setAttribute('fill', on ? '#f2e7c9' : '#f4bf63');
+  orbCore.setAttribute('r', on ? '34' : '46');
+});
+
+/* auto-hop */
+let timer=null;
+const playBtn=$('playBtn');
+function stop(){ if(timer){clearInterval(timer); timer=null;
+  playBtn.setAttribute('aria-pressed','false'); playBtn.textContent='Auto-hop';} }
+playBtn.addEventListener('click',()=>{
+  if(timer){ stop(); return; }
+  playBtn.setAttribute('aria-pressed','true'); playBtn.textContent='Stop hopping';
+  timer=setInterval(()=>pick((cur+1)%DAYS.length), 2600);
+});
+
+/* keyboard */
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'){ stop(); pick((cur+1)%DAYS.length); }
+  if(e.key==='ArrowLeft'){ stop(); pick((cur+DAYS.length-1)%DAYS.length); }
+});
+
+pick(0);
+})();
+</script>
+</body>
+</html>
